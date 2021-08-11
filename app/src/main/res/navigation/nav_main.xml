@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/newsListFragment">
+
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.tempo.newsfeed.news.NewsFragment"
+        android:label="NewsListFragment" >
+        <argument
+            android:name="newsItem"
+            app:argType="com.tempo.newsfeed.api.NewsListModel" />
+        <action
+            android:id="@+id/action_newsListFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.tempo.newsfeed.news.NewsDetailFragment"
+        android:label="NewsDetailFragment" >
+        <argument
+            android:name="newsItem"
+            app:argType="com.tempo.newsfeed.api.NewsListModel" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.tempo.newsfeed.news.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
